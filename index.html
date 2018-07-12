@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+        var myTurn = false;
+
+        d3.selectAll(".tile").on({
+          "click": function() {
+            if(myTurn) {
+              //add an X
+              //update myTurn
+            }
+          },
+        });
+
+        var playGame = function() {
+          while(!victory()) {
+            if(!myTurn) {
+              //send current state of board to model
+              //get model's next move
+              //update board display
+              //update myTurn
+            }
+          }
+        }
+    </script>
+</head>
+<body onload="playGame()">
+  <main class="bx--grid">
+    <h1>model_name vs me</h1>
+    <div id="board">
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+    </div>
+  </main>
+</body>
