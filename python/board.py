@@ -13,6 +13,13 @@ class Board:
     def copy_board(self, other_board):
         self.board = other_board.board.copy()
     
+    def board_from_list(list_board):
+        board =[]
+        for i in range(0,3):
+            board.append(list_board[3*i:3*i+3])
+        self.board=board
+            
+    
     def get(self, row, col):
         return self.board[row][col]
     
@@ -93,3 +100,26 @@ class Board:
             return empty
 
         return False   
+    
+    def str_to_ints(self, bString):
+        for i in range(len(bString)):
+            if(bString[i] == 'X'):
+                self.board[i//3][i%3] = 2
+            elif(bString[i] == 'O'):
+                self.board[i//3][i%3] = 1
+            elif(bString[i] == " "):
+                self.board[i//3][i%3] = 0
+        
+    def int_to_str(self):
+        str_lists = []
+        for i in range(len(self.board)):
+            row = []
+            for j in range(len(self.board[i])):
+                if(self.board[i][j] == 2):
+                    row.append('X')
+                elif(self.board[i][j] == 1):
+                    row.append('O')
+                else:
+                    row.append(' ')
+            str_lists.append(row)
+        return str_lists

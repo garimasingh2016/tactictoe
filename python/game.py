@@ -54,38 +54,3 @@ class Game:
             if(board.victory() == 2):
                 agent_losses += 1
         return agent_wins, agent_losses
-        
-    
-if __name__ == "__main__":
-    running = True
-    games = 0
-    wins = 0
-    losses = 0
-    this_game = Game(Board(), Human(), Sarsa(2))
-    while(running):
-        action = choose_action()
-        if(action == "Y"):
-            winner = this_game.interactive_game(Human())
-            games += 1
-            if(winner == 1):
-                wins += 1
-            elif(winner == 2):
-                losses += 1
-            print_outcome(winner, "Player1", "Player2")
-        if(action == "T"):
-            rounds = choose_rounds()
-            t_wins, t_losses = this_game.automated_games(rounds, Valid(1))
-            end_game("Valid", "Sarsa", rounds, t_wins, t_losses)
-        elif(action == "L1"):
-            this_game.player1.read("Player1")
-        elif(action == "L2"):
-            this_game.player2.read("Player2")
-        elif(action == "W1"):
-            this_game.player1.write("Player1")
-        elif(action == "W2"):
-            this_game.player2.write("Player2")
-        elif(action == "N"):
-            running = False
-    end_game("Human", "Sarsa", games, wins, losses)
-    
-
